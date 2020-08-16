@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+       <style>
+            .avatar img {
+                width: 100px;
+                border-radius: 30px;
+            }
+
+            .con-user .title {
+                text-align: center;
+                width: 100%;
+            }
+
+            .con-user .title h1 {
+                font-size: 1.1rem;
+                padding: 0px 0px;
+            }
+
+            .con-user .title p {
+                font-size: .9rem;
+                opacity: .6;
+                padding: 6px 10px;
+            }
+
+            .con-user .title p a {
+                color: rgb(var(--text));
+            }
+
+            .con-user {
+                padding-top: 10px;
+                width: 100%;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                background: #fff;
+                padding-bottom: 10px;
+                border-radius: 0px 0px 40px 0px;
+            }
+
+            .con-menu {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px;
+                max-width: 500px;
+                margin: auto;
+                width: 100%;
+                position: relative;
+                z-index: 10;
+                box-shadow: 0px 15px 20px -5px rgba(0,0,0,.08);
+                border-radius: 0px 0px 30px 30px;
+            }
+
+            .con-menu button {
+                padding: 12px;
+                width: calc(50% - 4px);
+                border: 0px;
+                background: transparent;
+                font-weight: bold;
+                color: rgb(var(--text));
+                font-size: 1 rem;
+                transition: all .25s ease;
+                box-shadow: 0px 0px 0px 0px rgba(0,0,0,.08);
+                border-radius: 16px;
+                z-index: 2;
+            }
+
+            .con-menu button.active {
+                background: #fff;
+                box-shadow: 0px 5px 25px 0px rgba(0,0,0,.06);
+                color: rgb(var(--primary));
+            }
+
+            .con-contents {
+                width: 100%;
+                overflow-x: auto;
+                overflow-y: hidden;
+                display: flex;
+                align-items: flex-start;
+                justify-content: flex-start;
+                scroll-snap-type: x mandatory;
+                scroll-behavior: smooth;
+                flex: 1;
+                height: 100%;
+                position: relative;
+                max-width: 500px;
+            }
+
+            .con-links {
+                display: flex;
+                align-items: flex-start;
+                justify-content: flex-start;
+                flex-direction: column;
+                padding: 15px 20px;
+                padding-top: 0px;
+                max-width: 500px;
+                width: 100%;
+                margin: auto;
+                min-width: 100%;
+                scroll-snap-align: center;
+                flex: 1;
+                overflow: auto;
+                padding-top: 20px;
+            }
+
+            .con-links a {
+                display: block;
+                width: 100%;
+                padding: 18px 40px;
+                text-decoration: none;
+                font-size: 1rem;
+                color:#fff;
+                display: flex;
+                align-items: center;
+                justify-items: center;
+                background: #1815df;
+                margin-bottom: 16px;
+                border-radius: 25px;
+                position: relative;
+                box-shadow: 0px 10px 30px 0px rgba(var(--primary), .15);
+            }
+
+            .con-links a span {
+                text-align: center;
+            }
+
+            .con-links a span p {
+                font-size: .8rem;
+            }
+
+            .con-links a img {
+                max-width:22px;
+                position: absolute;
+                left: 20px;
+            }
+
+            .con-links a svg {
+                width: 22px;
+                fill: #fff;
+                position: absolute;
+                left: 20px;
+            }
+
+            .con-links a i {
+                font-size: 1.6rem;
+                position: absolute;
+                left: 20px;
+            }
+       </style>
+       <script>
+            const user = document.querySelector('.con-user')
+            const menu = document.querySelector('.con-menu')
+            const contents = document.querySelector('.con-contents')
+            const links = document.querySelector('.con-links')
+            const posts = document.querySelector('.con-posts')
+            window.addEventListener("load", function(event) {
+                const vh = window.innerHeight * 0.01
+                document.documentElement.style.setProperty('--vh', '${vh}px')
+
+                setTimeout(function () {
+                    window.scrollTo(0,1)
+                }, 0)
+                const h = window.innerHeight - menu.clientHeight - user.clientHeight
+                contents.style.height = `${h}px`
+                links.style.height = `${h}px`
+                posts.style.height = `${h}px`
+            })
+
+            function handleClick(evt, name) {
+                const items = document.querySelectorAll('.con-menu button')
+                const el = evt.target
+                items.forEach((item) => {
+
+                    item.ClassList.remove('active')
+                })
+                el.ClassList.add('active')
+                const elScroll = document.querySelector(`.${name}`)
+                contents.scrollTo(elScroll.offsetLeft, 0)
+            }
+       </script>
+    </head>
+    <body>
+        <div class="con-user">
+            <div class="avatar">
+                <img src="/avatar.jpg" alt="">
+            </div>
+            <div class="title">
+                <h1>Jaimin M. Shimpi</h1>
+                <p>Web Developer, Programmer, Graphic designer</p>
+            </div>
+        </div>
+
+        <div class="con-menu">
+            <button onclick="handleClick(event, 'con-links')" class="active">Links</button>
+            <button onclick="handleClick(event, 'con-posts')">Posts</button>
+        </div>
+
+        <div class="con-contents">
+            <div class="con-links">
+                <a target="_blank" href="https://www.instagram.com/jaimin_shimpi/">
+                    <i class="bx bxl-instagram-alt"></i>
+                    <span text-align="center">Instagram</span>
+                </a>
+                <a target="_blank" href="https://www.linkedin.com/in/jaimin-shimpi/">
+                    <i class="bx bxl-linkedIn-alt"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a target="_blank" href="https://www.facebook.com/jaimin.shimpi">
+                    <i class="bx bxl-facebook-alt"></i>
+                    <span>Facebook</span>
+                </a>
+                <a target="_blank" href="https://twitter.com/ShimpiJaimin">
+                    <i class="bx bxl-twitter-alt"></i>
+                    <span>Twitter</span>
+                </a>
+                <a target="_blank" href="https://www.snapchat.com/">
+                    <i class="bx bxl-snapchat-alt"></i>
+                    <span>Snapchat</span>
+                </a>
+                <a target="_blank" href="https://github.com/Jaimin441">
+                    <i class="bx bxl-github-alt"></i>
+                    <span>Github</span>
+                </a>
+                <a target="_blank" href="https://www.behance.net/jaiminshimpi1">
+                    <i class="bx bxl-behance-alt"></i>
+                    <span>Behance</span>
+                </a>
+            </div>
+            <div class="con-posts">
+
+            </div>
+        </div>
+    </body>
+</html>    
