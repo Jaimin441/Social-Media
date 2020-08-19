@@ -9,17 +9,16 @@ body {
   letter-spacing: 2px;
 }
 
-#bgImg {
-  position: absolute;
-  width: 500px;
-  height: 500px;
+.card-body {
   background: #f0f0f0;
+  top: 10%;
   z-index: 2;
-  top: 15%;
-  right: 34%;
   border-radius: 500px;
+  border: transparent;
   transform-style: preserve-3d;
   transition: 0.3s ease-out;
+  display: flex;
+  align-items: center;
 }
 
 img {
@@ -29,25 +28,21 @@ img {
   transition: 0.3s ease-out;
 }
 
+.mt {
+  margin-top: 6rem;
+}
+
 @media (min-width: 768px) {
   .fixed-bottom {
     padding: 2rem 10rem;
   }
+
+  .flex {
+    width: 500px;
+  }
 }
 
 @media (max-width: 768px) {
-  img {
-    width: 20rem;
-    margin-left: 1rem;
-    margin-top: 1rem;
-  }
-
-  #bgImg {
-    width: 22rem;
-    height: 22rem;
-    top: 29%;
-    right: 6%;
-  }
 
   .fixed-bottom {
     padding: 2rem 15px;
@@ -69,10 +64,6 @@ a {
 
 a:hover {
   color: #000000;
-}
-
-a:hover #bgImg {
-  background-color: blue;
 }
 
 body #magicMouseCursor {

@@ -11,7 +11,7 @@ magicMouse(options);
 
 feather.replace({ width: '3em' });
 
-const tilt = $('#bgImg').tilt();
+const tilt = $('.card-body').tilt();
 tilt.on('tilt.mouseLeave', function () {
   $('img').css("transform", "translateZ(0px)");
   $('img').css("filter", "grayscale(100%)");
@@ -28,26 +28,26 @@ $('a, h1').mouseover(function () {
 });
 
 $('.facebook').mouseover(function () {
-  $('#bgImg').css("background-color", "#3b5998");
+  $('.card-body').css("background-color", "#3b5998");
 });
 
 $('.instagram').mouseover(function () {
-  $('#bgImg').css("background-color", "#de1b85");
+  $('.card-body').css("background-color", "#de1b85");
 });
 
 $('.linkedin').mouseover(function () {
-  $('#bgImg').css("background-color", "#0e76a8");
+  $('.card-body').css("background-color", "#0e76a8");
 });
 
 $('.twitter').mouseover(function () {
-  $('#bgImg').css("background-color", "#00acee");
+  $('.card-body').css("background-color", "#00acee");
 });
 
 $('.github').mouseover(function () {
-  $('#bgImg').css("background-color", "#333333");
+  $('.card-body').css("background-color", "#333333");
 });
 
 $('a, h1').mouseout(function () {
-  $('#bgImg').css("background-color", "#f0f0f0");
+  $('.card-body').css("background-color", "#f0f0f0");
   $('img').css("filter", "grayscale(100%)");
 });
